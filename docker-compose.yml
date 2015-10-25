@@ -1,8 +1,16 @@
+# redis-volume
+data-redis:
+  image: busybox
+  volumes:
+    - /data
 # redis
 redis:
   image: redis
   ports:
     - "6379:6379"
+  volumes_from:
+    - data-redis
+  command: redis-server --appendonly yes
 # hubot
 hubot:
   build: .
