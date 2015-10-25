@@ -17,7 +17,7 @@ WORKDIR /hubot
 RUN yo hubot --owner=${HUBOT_OWNER} --name=${HUBOT_NAME} --description=${HUBOT_DESCRIPTION} --defaults
 
 ADD hubot-scripts.json /hubot/hubot-scripts.json
-ADD scripts/hello.coffee /hubot/scripts/hello.coffee
+ADD scripts /hubot/scripts
 
 RUN npm install hubot-slack --save && npm install
 
